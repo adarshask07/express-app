@@ -1,35 +1,36 @@
 const express = require('express')
 
 const app = express() ;
-
-
-// function login(request, response){
-//     const username = request.body.username
-//     const password = request.body.password
-
-//     // user is already present in db 
-//     // db call to chech the ciondution 
-//     user :{
-//         userId,
-//         userName
-//     }
+app.use(express.json()) ;
 
 
 
-//     response.send({
-//         message :" user loggedin "
-//         userId : userId
-//     })
-// }
-function main(request, response) {
-    return response.send({
-        message: "Response from /",
-    });
+function login (req, res){
+    const username = req.body.username ;
+    const password = req.body.password ;
+
+
+    return res.json( {
+        name : username, 
+        pass : password 
+    } )
 }
-// routing 
+
+function main(req, res){
+
+    return res.send("Gkjbskdf")
+}
+
+
+
+// routes 
+
+
+// GET 
 app.get("/", main)
-// app.post('/login', login)
-// app.post('/signup', signup)
+// POST 
+app.post('/login', login)
+
 
 
 
